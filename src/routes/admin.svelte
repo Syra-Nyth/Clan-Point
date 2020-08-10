@@ -22,11 +22,33 @@
 
 </style>
 
+<script>
+    import { stores } from '@sapper/app'
+    const { session } = stores()
+
+    let holdScores = session.clans
+
+    // session.clans = {
+    holdScores = {
+        balmoral: [1, 1, 1, 1, 1, 1],
+        braemar: [1, 1, 1, 1, 1, 1],
+        doune: [1, 1, 1, 1, 1, 1],
+        dunvegan: [1, 1, 1, 1, 1, 1],
+        glamis: [1, 1, 1, 1, 1, 1],
+        stirling: [1, 1, 1, 1, 1, 1],
+    }
+
+    function addScore() {
+       session.clans = holdScores
+       console.log("No")
+     }
+</script>
+
 <!-- Table -->
 <div>
     <table class="table is-bordered table is-striped">
-    <!-- Table Head -->
     <tbody>
+        <!-- Table Head -->
         <tr>
             <td>Clan</td>
             <td>Athletics</td>
@@ -40,75 +62,71 @@
         <!-- Balmoral -->
         <tr>
             <td>Balmoral</td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            {#each holdScores.balmoral as score}
+                <td>
+                    <input type="number" bind:value={score}>
+                </td>
+            {/each}
         </tr>
         <!-- Braemar -->
         <tr>
             <td>Braemar</td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            {#each holdScores.braemar as score}
+                <td>
+                    <input type="number" bind:value={score}>
+                </td>
+            {/each}
         </tr>
         <!-- Doune -->
         <tr>
             <td>Doune</td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            {#each holdScores.doune as score}
+                <td>
+                    <input type="number" bind:value={score}>
+                </td>
+            {/each}
         </tr>
         <!-- Dunvegan -->
         <tr>
             <td>Dunvegan</td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            {#each holdScores.dunvegan as score}
+                <td>
+                    <input type="number" bind:value={score}>
+                </td>
+            {/each}
         </tr>
         <!-- Glamis -->
         <tr>
             <td>Glamis</td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            {#each holdScores.glamis as score}
+                <td>
+                    <input type="number" bind:value={score}>
+                </td>
+            {/each}
         </tr>
         <!-- Sterling -->
         <tr>
-            <td>Sterling</td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
+            <td>Stirling</td>
+            {#each holdScores.stirling as score}
+                <td>
+                    <input type="number" bind:value={score}>
+                </td>
+            {/each}
         </tr>
     </tbody>
     </table>
 </div>
 
+<!-- Buttons -->
 <div class="field is-grouped">
-    <button class="button is-success is-light" type="submit">Save</button>
+    <button class="button is-success is-light" on:click={addScore}>Save</button>
+    <!--  -->
     <button class="button is-info is-light">Cancel</button>
     <button class="button is-danger is-light" type="reset">Reset</button>
 </div>
+
+<!-- {#if session.clans}
+    {#each session.clans as clansb}
+        <p>{clansb}</p>
+    {/each}
+{/if} -->

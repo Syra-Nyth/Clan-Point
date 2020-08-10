@@ -54,15 +54,34 @@
         background-color: #ffcccc;
     }
 
-    .sterling {
+    .stirling {
         background-color: #ffe699;
     }
-    #sterling-row {
+    #stirling-row {
         background-color: #fff2cc;
     }
 
 </style>
 
+<script>
+    import { stores } from '@sapper/app'
+    const { session } = stores()
+
+    if (!session.clans) {
+        session.clans = {
+            balmoral: [0, 0, 0, 0, 0, 0],
+            braemar: [0, 0, 0, 0, 0, 0],
+            doune: [0, 0, 0, 0, 0, 0],
+            dunvegan: [0, 0, 0, 0, 0, 0],
+            glamis: [0, 0, 0, 0, 0, 0],
+            stirling: [0, 0, 0, 0, 0, 0],
+        }
+    } 
+
+    let tot = '1'
+</script>
+
+<!-- Table -->
 <div>
     <table class="table is-bordered">
         <tbody>
@@ -78,71 +97,55 @@
                 <td class="clan">Total</td>
             </tr>
             <!-- Balmoral -->
+            {#each tot as total}
             <tr id="balmoral-row">
                 <td class="balmoral">Balmoral</td>
-                <td>6th</td>
-                <td>4th</td>
-                <td>1st</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td class="balmoral">4th</td>
+                {#each session.clans.balmoral as score}
+                    <td>{score}</td>       
+                {/each}
+                <td id="TBal" class="balmoral">{total}</td>
             </tr>
             <!-- Braemar -->
             <tr id="braemar-row">
                 <td class="braemar">Braemar</td>
-                <td>6th</td>
-                <td>4th</td>
-                <td>1st</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td class="braemar">4th</td>
+                {#each session.clans.braemar as score}
+                    <td>{score}</td>       
+                {/each}
+                <td id="TBrae" class="braemar">{total}</td>
             </tr>
             <!-- Doune -->
             <tr id="doune-row">
                 <td class="doune">Doune</td>
-                <td>6th</td>
-                <td>4th</td>
-                <td>1st</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td class="doune">4th</td>
+                {#each session.clans.doune as score}
+                    <td>{score}</td>       
+                {/each}
+                <td id="TDoun" class="doune">{total}</td>
             </tr>
             <!-- Dunvegan -->
             <tr id="dunvegan-row">
                 <td class="dunvegan">Dunvegan</td>
-                <td>6th</td>
-                <td>4th</td>
-                <td>1st</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td class="dunvegan">4th</td>
+                {#each session.clans.dunvegan as score}
+                    <td>{score}</td>       
+                {/each}
+                <td id="TDun" class="dunvegan">{total}</td>
             </tr>
             <!-- Glamis -->
             <tr id="glamis-row">
                 <td class="glamis">Glamis</td>
-                <td>6th</td>
-                <td>4th</td>
-                <td>1st</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td class="glamis">4th</td>
+                {#each session.clans.glamis as score}
+                    <td>{score}</td>       
+                {/each}
+                <td id="TGlam" class="glamis">{total}</td>
             </tr>
             <!-- Sterling -->
-            <tr id="sterling-row">
-                <td class="sterling">Sterling</td>
-                <td>6th</td>
-                <td>4th</td>
-                <td>1st</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td class="sterling">4th</td>
+            <tr id="stirling-row">
+                <td class="stirling">Stirling</td>
+                {#each session.clans.stirling as score}
+                    <td>{score}</td>       
+                {/each}
+                <td id="TStir" class="stirling">{total}</td>
             </tr>
+            {/each}
         </tbody>
     </table>
 </div>
