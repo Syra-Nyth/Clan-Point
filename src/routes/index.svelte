@@ -1,4 +1,15 @@
 <style>
+    body {
+        background-image: url("rainbow.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+	h1 {
+		width: fit-content;
+		margin: 0 auto;
+	}
+
     table {
         margin-left: auto;
         margin-right: auto;
@@ -64,9 +75,11 @@
 </style>
 
 <script>
+    // import Header from './_components/Header.svelte'
     import { stores } from '@sapper/app'
     const { session } = stores()
 
+    /*If the session.clans data, imported from the admin page, is not found (is 'falsey'), then this data will be used a placeholder for the table until the correct data can be inserted.*/
     if (!session.clans) {
         session.clans = {
             balmoral: [0, 0, 0, 0, 0, 0],
@@ -81,71 +94,88 @@
     let tot = '1'
 </script>
 
-<!-- Table -->
-<div>
-    <table class="table is-bordered">
-        <tbody>
-            <!-- Title -->
-            <tr id="title">
-                <td class="clan">Clan</td>
-                <td>Athletics</td>
-                <td>Swimming Sports</td>
-                <td>Rangi Roadie</td>
-                <td>Clan Quiz</td>
-                <td>Cross Country</td>
-                <td>Clan Singing</td>
-                <td class="clan">Total</td>
-            </tr>
-            <!-- Balmoral -->
-            {#each tot as total}
-            <tr id="balmoral-row">
-                <td class="balmoral">Balmoral</td>
-                {#each session.clans.balmoral as score}
-                    <td>{score}</td>       
+
+<body>
+
+    <br>
+    <br>
+    <br>
+	<h1 class="title is-1">
+		Clan Points
+	</h1>
+    <br>
+
+
+    <!-- Table -->
+    <div>
+        <table class="table is-bordered">
+            <tbody>
+                <!-- Title -->
+                <tr id="title">
+                    <td class="clan">Clan</td>
+                    <td>Athletics</td>
+                    <td>Swimming Sports</td>
+                    <td>Rangi Roadie</td>
+                    <td>Clan Quiz</td>
+                    <td>Cross Country</td>
+                    <td>Clan Singing</td>
+                    <td class="clan">Total</td>
+                </tr>
+                <!-- Balmoral -->
+                {#each tot as total}
+                <tr id="balmoral-row">
+                    <td class="balmoral">Balmoral</td>
+                    {#each session.clans.balmoral as score}
+                        <td>{score}</td>       
+                    {/each}
+                    <td id="TBal" class="balmoral">{total}</td>
+                </tr>
+                <!-- Braemar -->
+                <tr id="braemar-row">
+                    <td class="braemar">Braemar</td>
+                    {#each session.clans.braemar as score}
+                        <td>{score}</td>       
+                    {/each}
+                    <td id="TBrae" class="braemar">{total}</td>
+                </tr>
+                <!-- Doune -->
+                <tr id="doune-row">
+                    <td class="doune">Doune</td>
+                    {#each session.clans.doune as score}
+                        <td>{score}</td>       
+                    {/each}
+                    <td id="TDoun" class="doune">{total}</td>
+                </tr>
+                <!-- Dunvegan -->
+                <tr id="dunvegan-row">
+                    <td class="dunvegan">Dunvegan</td>
+                    {#each session.clans.dunvegan as score}
+                        <td>{score}</td>       
+                    {/each}
+                    <td id="TDun" class="dunvegan">{total}</td>
+                </tr>
+                <!-- Glamis -->
+                <tr id="glamis-row">
+                    <td class="glamis">Glamis</td>
+                    {#each session.clans.glamis as score}
+                        <td>{score}</td>       
+                    {/each}
+                    <td id="TGlam" class="glamis">{total}</td>
+                </tr>
+                <!-- Sterling -->
+                <tr id="stirling-row">
+                    <td class="stirling">Stirling</td>
+                    {#each session.clans.stirling as score}
+                        <td>{score}</td>       
+                    {/each}
+                    <td id="TStir" class="stirling">{total}</td>
+                </tr>
                 {/each}
-                <td id="TBal" class="balmoral">{total}</td>
-            </tr>
-            <!-- Braemar -->
-            <tr id="braemar-row">
-                <td class="braemar">Braemar</td>
-                {#each session.clans.braemar as score}
-                    <td>{score}</td>       
-                {/each}
-                <td id="TBrae" class="braemar">{total}</td>
-            </tr>
-            <!-- Doune -->
-            <tr id="doune-row">
-                <td class="doune">Doune</td>
-                {#each session.clans.doune as score}
-                    <td>{score}</td>       
-                {/each}
-                <td id="TDoun" class="doune">{total}</td>
-            </tr>
-            <!-- Dunvegan -->
-            <tr id="dunvegan-row">
-                <td class="dunvegan">Dunvegan</td>
-                {#each session.clans.dunvegan as score}
-                    <td>{score}</td>       
-                {/each}
-                <td id="TDun" class="dunvegan">{total}</td>
-            </tr>
-            <!-- Glamis -->
-            <tr id="glamis-row">
-                <td class="glamis">Glamis</td>
-                {#each session.clans.glamis as score}
-                    <td>{score}</td>       
-                {/each}
-                <td id="TGlam" class="glamis">{total}</td>
-            </tr>
-            <!-- Sterling -->
-            <tr id="stirling-row">
-                <td class="stirling">Stirling</td>
-                {#each session.clans.stirling as score}
-                    <td>{score}</td>       
-                {/each}
-                <td id="TStir" class="stirling">{total}</td>
-            </tr>
-            {/each}
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+        <br>
+    </div>
+    <br>
+    <br>
+
+</body>

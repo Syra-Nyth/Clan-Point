@@ -9,12 +9,14 @@
 <style>
 </style>
 
+<main>
+	<slot></slot>
+</main>
+
 <Header />
 
 <Nav {segment}/>
 
-<main class="section">
-	<slot></slot>
-</main>
+<!-- <main class="section"> -->
 
 <Footer />
