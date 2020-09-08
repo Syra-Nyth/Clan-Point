@@ -28,7 +28,7 @@
 
     let holdScores = session.clans
 
-    // session.clans = {
+    // Holds the 
     holdScores = {
         balmoral: [1, 1, 1, 1, 1, 1],
         braemar: [1, 1, 1, 1, 1, 1],

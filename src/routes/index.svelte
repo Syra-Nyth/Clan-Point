@@ -75,7 +75,7 @@
 </style>
 
 <script>
-    // import Header from './_components/Header.svelte'
+    /* import Header from './_components/Header.svelte' */
     import { stores } from '@sapper/app'
     const { session } = stores()
 
@@ -121,10 +121,12 @@
                     <td>Clan Singing</td>
                     <td class="clan">Total</td>
                 </tr>
-                <!-- Balmoral -->
+                <!-- Sets each total to 1  -->
                 {#each tot as total}
+                <!-- Balmoral -->
                 <tr id="balmoral-row">
                     <td class="balmoral">Balmoral</td>
+                    <!-- Takes the data from session.clans.balmoral and inputs it in the Balmoral row -->
                     {#each session.clans.balmoral as score}
                         <td>{score}</td>       
                     {/each}
@@ -133,6 +135,7 @@
                 <!-- Braemar -->
                 <tr id="braemar-row">
                     <td class="braemar">Braemar</td>
+                    <!-- Takes the data from session.clans.braemar and inputs it in the Braemar row -->
                     {#each session.clans.braemar as score}
                         <td>{score}</td>       
                     {/each}
@@ -141,6 +144,7 @@
                 <!-- Doune -->
                 <tr id="doune-row">
                     <td class="doune">Doune</td>
+                    <!-- Takes the data from session.clans.doune and inputs it in the Doune row -->
                     {#each session.clans.doune as score}
                         <td>{score}</td>       
                     {/each}
@@ -149,6 +153,7 @@
                 <!-- Dunvegan -->
                 <tr id="dunvegan-row">
                     <td class="dunvegan">Dunvegan</td>
+                    <!-- Takes the data from session.clans.dunvegan and inputs it in the Dunvegan row -->
                     {#each session.clans.dunvegan as score}
                         <td>{score}</td>       
                     {/each}
@@ -157,6 +162,7 @@
                 <!-- Glamis -->
                 <tr id="glamis-row">
                     <td class="glamis">Glamis</td>
+                    <!-- Takes the data from session.clans.glamis and inputs it in the Glamis row -->
                     {#each session.clans.glamis as score}
                         <td>{score}</td>       
                     {/each}
@@ -165,6 +171,7 @@
                 <!-- Sterling -->
                 <tr id="stirling-row">
                     <td class="stirling">Stirling</td>
+                    <!-- Takes the data from session.clans.stirling and inputs it in the Stirling row -->
                     {#each session.clans.stirling as score}
                         <td>{score}</td>       
                     {/each}
