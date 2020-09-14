@@ -1,6 +1,6 @@
 <style>
     body {
-        background-image: url("rainbow.png");
+        background-image: url("rainbow3.png");
         background-size: 100%;
         background-repeat: no-repeat;
     }
