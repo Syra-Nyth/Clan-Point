@@ -1,11 +1,13 @@
 <style>
-    body {
+    div {
         background-image: url("rainbow3.png");
         background-size: 100%;
         background-repeat: no-repeat;
+        padding-top: 50px;
+        padding-bottom: 80px;
     }
 
-	h1 {
+    h1 {
 		width: fit-content;
 		margin: 0 auto;
 	}
@@ -75,6 +77,7 @@
 </style>
 
 <script>
+import Nav from './_components/Nav.svelte'
     /* import Header from './_components/Header.svelte' */
     import { stores } from '@sapper/app'
     const { session } = stores()
@@ -95,19 +98,15 @@
 </script>
 
 
-<body>
+    <!-- Table -->
+    <div>
 
-    <br>
-    <br>
-    <br>
+    <Nav />
+
 	<h1 class="title is-1">
 		Clan Points
 	</h1>
-    <br>
 
-
-    <!-- Table -->
-    <div>
         <table class="table is-bordered">
             <tbody>
                 <!-- Title -->
@@ -184,5 +183,3 @@
     </div>
     <br>
     <br>
-
-</body>

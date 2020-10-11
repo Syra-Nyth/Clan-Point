@@ -9,11 +9,33 @@
 		<link rel='icon' type='image/png' href='favicon.png'>
 		%sapper.styles%
 		%sapper.head%
-	</head>
+		</head>
 
 	<body>
 		<div id='sapper'>%sapper.html%</div>
+	  
+		<!-- The core Firebase JS SDK is always required andd must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+		  
+		<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+		  
+		<script>
+		  // Your web app's Firebase configuration
+		  
+			var firebaseConfig = {
+				apiKey: "AIzaSyB4s5bRSRSoiAI1r4BXbTukIVlO9ElGk_o",
+				authDomain: "tester-5369d.firebaseapp.com",
+				databaseURL: "https://tester-5369d.firebaseio.com",
+				projectId: "tester-5369d",
+				storageBucket: "tester-5369d.appspot.com",
+				messagingSenderId: "618210748546",
+				appId: "1:618210748546:web:c2f0f8b2ab44e1dccc2c9b"
+			};
+		  
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+		</script>
+		  
 		%sapper.scripts%
 	</body>
-
 </html>

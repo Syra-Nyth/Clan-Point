@@ -5,29 +5,49 @@
 <style>
 	a {
 		color: black;
-		background-color: lightgrey;
-		padding: 3px 10px;
-		border-bottom: 1px solid white;
+		padding-right: 10px;
 	}
 	
-	.is-active {
-		border-bottom: 1px solid black;
+	a:hover {
+		background-color: #b4b4b4;
 	}
 
 	nav {
-		width: fit-content;
-		margin: 0 auto;
+		/* width: fit-content; */
+		height: fit-content;
+		text-align: center;
+	}
+
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+  
+	.dropdown-content {
+		display: none;
+		position: absolute;
 	}
 	
+	.dropdown:hover .dropdown-content {
+		display: inline;
+		border: 1px solid black;
+	}
+	
+	span {
+		text-align: right; 
+	}
 </style>
 
 <nav class="navbar">
-  <div class="navbar-brand">
-    <a class="navbar-item" class:is-active={segment === undefined} href=".">
-		Display
-	</a>
-	<a class="navbar-item" class:is-active={segment === 'admin'} href="admin">
-		Admin
-	</a>
-  </div>
+	<div class="dropdown">
+    	<span class="title is-2 has-text-centered">⚙</span>
+    	<div class="dropdown-content">
+			<a class="navbar-item" class:is-active={segment === undefined} href=".">
+			Display
+			</a>
+			<a class="navbar-item" class:is-active={segment === 'admin'} href="admin">
+			Admin
+			</a>
+		</div>
+  	</div>
 </nav>
