@@ -1,41 +1,44 @@
 <!doctype html>
 <html lang='en'>
 
-	<head>
-		<meta charset='utf-8'>
-		<meta name='viewport' content='width=device-width,initial-scale=1.0'>
-		%sapper.base%
-		<link rel='stylesheet' href='global.css'>
-		<link rel='icon' type='image/png' href='favicon.png'>
-		%sapper.styles%
-		%sapper.head%
-		</head>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+	%sapper.base%
+	<link rel='stylesheet' href='global.css'>
+	<link rel='icon' type='image/png' href='favicon.png'>
+	%sapper.styles%
+	%sapper.head%
+</head>
 
-	<body>
-		<div id='sapper'>%sapper.html%</div>
-	  
-		<!-- The core Firebase JS SDK is always required andd must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-		  
-		<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
-		  
-		<script>
-		  // Your web app's Firebase configuration
-		  
-			var firebaseConfig = {
-				apiKey: "AIzaSyB4s5bRSRSoiAI1r4BXbTukIVlO9ElGk_o",
-				authDomain: "tester-5369d.firebaseapp.com",
-				databaseURL: "https://tester-5369d.firebaseio.com",
-				projectId: "tester-5369d",
-				storageBucket: "tester-5369d.appspot.com",
-				messagingSenderId: "618210748546",
-				appId: "1:618210748546:web:c2f0f8b2ab44e1dccc2c9b"
-			};
-		  
-			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
-		</script>
-		  
-		%sapper.scripts%
-	</body>
+<body>
+	<div id='sapper'>%sapper.html%</div>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyCcf-nlRBb7ic8Q6FQpdGLmJZonJBNuj90",
+			authDomain: "clan-points-7a573.firebaseapp.com",
+			databaseURL: "https://clan-points-7a573.firebaseio.com",
+			projectId: "clan-points-7a573",
+			storageBucket: "clan-points-7a573.appspot.com",
+			messagingSenderId: "185193488656",
+			appId: "1:185193488656:web:858dd7f79d5f1dc54b0595"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+
+		// create the database variable so that the rest of the app can use it
+		const db = firebase.firestore()
+	</script>
+
+	%sapper.scripts%
+</body>
+
 </html>
