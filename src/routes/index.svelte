@@ -28,8 +28,6 @@
   }
 
   getClan();
-
-
 </script>
 
 <style>

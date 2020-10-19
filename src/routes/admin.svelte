@@ -3,7 +3,7 @@
 
   import { stores } from "@sapper/app";
   const { session } = stores();
-  
+
   // Provides a filler number for the table, until it is fetched from the database
   let holdScores = {
     balmoral: [1, 1, 1, 1, 1, 1, 1],
@@ -49,9 +49,7 @@
       stirling: [1, 1, 1, 1, 1, 1, 1]
     };
   }
-
 </script>
-
 
 <style>
   table {
@@ -79,7 +77,6 @@
     margin-bottom: 50px;
   }
 </style>
-
 
 <div>
   <Nav />
