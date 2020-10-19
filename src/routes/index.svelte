@@ -7,14 +7,28 @@
   /*If the session.clans data, imported from the admin page, is not found (is 'falsey'), then this data will be used a placeholder for the table until the correct data can be inserted.*/
   if (!session.clans) {
     session.clans = {
-      balmoral: [0, 0, 0, 0, 0, 0, 0],
-      braemar: [0, 0, 0, 0, 0, 0, 0],
-      doune: [0, 0, 0, 0, 0, 0, 0],
-      dunvegan: [0, 0, 0, 0, 0, 0, 0],
-      glamis: [0, 0, 0, 0, 0, 0, 0],
-      stirling: [0, 0, 0, 0, 0, 0, 0]
+      balmoral: [1, 1, 1, 1, 1, 1, 1],
+      braemar: [1, 1, 1, 1, 1, 1, 1],
+      doune: [1, 1, 1, 1, 1, 1, 1],
+      dunvegan: [1, 1, 1, 1, 1, 1, 1],
+      glamis: [1, 1, 1, 1, 1, 1, 1],
+      stirling: [1, 1, 1, 1, 1, 1, 1]
     };
   }
+
+  async function getClan() {
+    // get the document from the database for the given clan
+    let clanDoc = await db
+      .collection("clans")
+      .doc("placings")
+      .get();
+
+    // get the data from the person document
+    session.clans = clanDoc.data();
+  }
+
+  getClan();
+
 
 </script>
 
@@ -111,62 +125,62 @@
       <!-- Title -->
       <tr id="title">
         <td class="clan">Clan</td>
+        <td>400m</td>
         <td>Athletics</td>
         <td>Swimming Sports</td>
         <td>Rangi Roadie</td>
         <td>Clan Quiz</td>
-        <td>Cross Country</td>
         <td>Clan Singing</td>
         <td class="clan">Total</td>
       </tr>
-        <!-- Balmoral -->
-        <tr id="balmoral-row">
-          <td class="balmoral">Balmoral</td>
-          <!-- Takes the data from session.clans.balmoral and inputs it in the Balmoral row -->
-          {#each session.clans.balmoral as score}
-            <td>{score}</td>
-          {/each}
-        </tr>
-        <!-- Braemar -->
-        <tr id="braemar-row">
-          <td class="braemar">Braemar</td>
-          <!-- Takes the data from session.clans.braemar and inputs it in the Braemar row -->
-          {#each session.clans.braemar as score}
-            <td>{score}</td>
-          {/each}
-        </tr>
-        <!-- Doune -->
-        <tr id="doune-row">
-          <td class="doune">Doune</td>
-          <!-- Takes the data from session.clans.doune and inputs it in the Doune row -->
-          {#each session.clans.doune as score}
-            <td>{score}</td>
-          {/each}
-        </tr>
-        <!-- Dunvegan -->
-        <tr id="dunvegan-row">
-          <td class="dunvegan">Dunvegan</td>
-          <!-- Takes the data from session.clans.dunvegan and inputs it in the Dunvegan row -->
-          {#each session.clans.dunvegan as score}
-            <td>{score}</td>
-          {/each}
-        </tr>
-        <!-- Glamis -->
-        <tr id="glamis-row">
-          <td class="glamis">Glamis</td>
-          <!-- Takes the data from session.clans.glamis and inputs it in the Glamis row -->
-          {#each session.clans.glamis as score}
-            <td>{score}</td>
-          {/each}
-        </tr>
-        <!-- Sterling -->
-        <tr id="stirling-row">
-          <td class="stirling">Stirling</td>
-          <!-- Takes the data from session.clans.stirling and inputs it in the Stirling row -->
-          {#each session.clans.stirling as score}
-            <td>{score}</td>
-          {/each}
-        </tr>
+      <!-- Balmoral -->
+      <tr id="balmoral-row">
+        <td class="balmoral">Balmoral</td>
+        <!-- Takes the data from session.clans.balmoral and inputs it in the Balmoral row -->
+        {#each session.clans.balmoral as score}
+          <td>{score}</td>
+        {/each}
+      </tr>
+      <!-- Braemar -->
+      <tr id="braemar-row">
+        <td class="braemar">Braemar</td>
+        <!-- Takes the data from session.clans.braemar and inputs it in the Braemar row -->
+        {#each session.clans.braemar as score}
+          <td>{score}</td>
+        {/each}
+      </tr>
+      <!-- Doune -->
+      <tr id="doune-row">
+        <td class="doune">Doune</td>
+        <!-- Takes the data from session.clans.doune and inputs it in the Doune row -->
+        {#each session.clans.doune as score}
+          <td>{score}</td>
+        {/each}
+      </tr>
+      <!-- Dunvegan -->
+      <tr id="dunvegan-row">
+        <td class="dunvegan">Dunvegan</td>
+        <!-- Takes the data from session.clans.dunvegan and inputs it in the Dunvegan row -->
+        {#each session.clans.dunvegan as score}
+          <td>{score}</td>
+        {/each}
+      </tr>
+      <!-- Glamis -->
+      <tr id="glamis-row">
+        <td class="glamis">Glamis</td>
+        <!-- Takes the data from session.clans.glamis and inputs it in the Glamis row -->
+        {#each session.clans.glamis as score}
+          <td>{score}</td>
+        {/each}
+      </tr>
+      <!-- Sterling -->
+      <tr id="stirling-row">
+        <td class="stirling">Stirling</td>
+        <!-- Takes the data from session.clans.stirling and inputs it in the Stirling row -->
+        {#each session.clans.stirling as score}
+          <td>{score}</td>
+        {/each}
+      </tr>
     </tbody>
   </table>
 

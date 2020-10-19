@@ -14,7 +14,7 @@
 
   function saveClan() {
     console.log("saveClan() clicked");
-    // save the person object to the database under their first name
+    // save the clan object to the database under the clan name
     db.collection("clans")
       .doc(clan.clanName)
       .set(clan);

@@ -3,11 +3,9 @@
 
   import { stores } from "@sapper/app";
   const { session } = stores();
-
-  let holdScores = session.clans;
-
-  // Holds the scores
-  holdScores = {
+  
+  // Provides a filler number for the table, until it is fetched from the database
+  let holdScores = {
     balmoral: [1, 1, 1, 1, 1, 1, 1],
     braemar: [1, 1, 1, 1, 1, 1, 1],
     doune: [1, 1, 1, 1, 1, 1, 1],
@@ -16,19 +14,44 @@
     stirling: [1, 1, 1, 1, 1, 1, 1]
   };
 
-  function addScore() {
-    session.clans = holdScores;
-    console.log("No");
-  }
-
+  // saves the clan placings to the database, overriding anything already there
   function saveClan() {
     console.log("saveClan() clicked");
     // save the person object to the database under their first name
+    console.log(session.clans);
     db.collection("clans")
-      .doc(clan.clanName)
-      .set(clan);
+      .doc("placings")
+      .set(session.clans);
   }
+
+  // fetches the clan placings from the database
+  async function getClan() {
+    // get the document from the database for the given clan
+    let clanDoc = await db
+      .collection("clans")
+      .doc("placings")
+      .get();
+
+    // get the data from the clan document
+    holdScores = clanDoc.data();
+  }
+
+  getClan();
+
+  /*If the session.clans data is not found (is 'falsey'), then this data will be used a placeholder for the table until the correct data can be inserted.*/
+  if (!session.clans) {
+    session.clans = {
+      balmoral: [1, 1, 1, 1, 1, 1, 1],
+      braemar: [1, 1, 1, 1, 1, 1, 1],
+      doune: [1, 1, 1, 1, 1, 1, 1],
+      dunvegan: [1, 1, 1, 1, 1, 1, 1],
+      glamis: [1, 1, 1, 1, 1, 1, 1],
+      stirling: [1, 1, 1, 1, 1, 1, 1]
+    };
+  }
+
 </script>
+
 
 <style>
   table {
@@ -57,6 +80,7 @@
   }
 </style>
 
+
 <div>
   <Nav />
   <!-- Table -->
@@ -66,18 +90,18 @@
         <!-- Table Head -->
         <tr>
           <td>Clan</td>
+          <td>400m</td>
           <td>Athletics</td>
           <td>Swimming Sports</td>
           <td>Rangi Roadie</td>
           <td>Clan Quiz</td>
-          <td>Cross Country</td>
           <td>Clan Singing</td>
           <td>Total</td>
         </tr>
         <!-- Balmoral -->
         <tr>
           <td>Balmoral</td>
-          {#each holdScores.balmoral as score}
+          {#each session.clans.balmoral as score}
             <td>
               <input type="number" bind:value={score} />
             </td>
@@ -86,7 +110,7 @@
         <!-- Braemar -->
         <tr>
           <td>Braemar</td>
-          {#each holdScores.braemar as score}
+          {#each session.clans.braemar as score}
             <td>
               <input type="number" bind:value={score} />
             </td>
@@ -95,7 +119,7 @@
         <!-- Doune -->
         <tr>
           <td>Doune</td>
-          {#each holdScores.doune as score}
+          {#each session.clans.doune as score}
             <td>
               <input type="number" bind:value={score} />
             </td>
@@ -104,7 +128,7 @@
         <!-- Dunvegan -->
         <tr>
           <td>Dunvegan</td>
-          {#each holdScores.dunvegan as score}
+          {#each session.clans.dunvegan as score}
             <td>
               <input type="number" bind:value={score} />
             </td>
@@ -113,7 +137,7 @@
         <!-- Glamis -->
         <tr>
           <td>Glamis</td>
-          {#each holdScores.glamis as score}
+          {#each session.clans.glamis as score}
             <td>
               <input type="number" bind:value={score} />
             </td>
@@ -122,7 +146,7 @@
         <!-- Sterling -->
         <tr>
           <td>Stirling</td>
-          {#each holdScores.stirling as score}
+          {#each session.clans.stirling as score}
             <td>
               <input type="number" bind:value={score} />
             </td>
@@ -134,8 +158,9 @@
 
   <!-- Buttons -->
   <div class="field is-grouped">
-    <button class="button is-success is-light" on:click={addScore}>Save</button>
-    <button class="button is-danger is-light" type="reset">Reset</button>
+    <!-- <button class="button is-success is-light" on:click={addScore}>Save</button> -->
+    <button class="button is-success is-light" on:click={saveClan}>Save</button>
+    <button class="button is-danger is-light">Reset</button>
   </div>
 
 </div>
