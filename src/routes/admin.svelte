@@ -161,6 +161,6 @@
   </div>
 
   <p>
-    To completely reset the scores back to 
+    To completely reset the scores back to 0 on the display page, refresh (Ctrl + Shift + r or Command + r) this page (the admin page), then save the scores.
   </p>
 </div>
