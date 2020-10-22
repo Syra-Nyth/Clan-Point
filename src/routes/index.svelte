@@ -42,11 +42,16 @@
   h1 {
     width: fit-content;
     margin: 0 auto;
+    color: white;
+    text-shadow: 0 0 5px black; 
+    font-size: 4em !important;
   }
 
   table {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 110px !important;
   }
 
   td {
@@ -110,13 +115,18 @@
 <!-- Table -->
 <div>
 
+  <br>
+
   <Nav />
 
-  <br />
+  <!-- <br>
+  <br> -->
 
   <h1 class="title is-1">Clan Points</h1>
 
-  <br />
+  <!-- <br>
+  <br>
+  <br> -->
 
   <table class="table is-bordered">
     <tbody>
@@ -182,8 +192,5 @@
     </tbody>
   </table>
 
-  <br />
 
 </div>
-
-<br />

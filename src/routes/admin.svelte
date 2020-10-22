@@ -17,7 +17,7 @@
   // saves the clan placings to the database, overriding anything already there
   function saveClan() {
     console.log("saveClan() clicked");
-    // save the person object to the database under their first name
+    // save the clan placings to the database under the clan name
     console.log(session.clans);
     db.collection("clans")
       .doc("placings")
@@ -41,12 +41,12 @@
   /*If the session.clans data is not found (is 'falsey'), then this data will be used a placeholder for the table until the correct data can be inserted.*/
   if (!session.clans) {
     session.clans = {
-      balmoral: [1, 1, 1, 1, 1, 1, 1],
-      braemar: [1, 1, 1, 1, 1, 1, 1],
-      doune: [1, 1, 1, 1, 1, 1, 1],
-      dunvegan: [1, 1, 1, 1, 1, 1, 1],
-      glamis: [1, 1, 1, 1, 1, 1, 1],
-      stirling: [1, 1, 1, 1, 1, 1, 1]
+      balmoral: [0, 0, 0, 0, 0, 0, 0],
+      braemar: [0, 0, 0, 0, 0, 0, 0],
+      doune: [0, 0, 0, 0, 0, 0, 0],
+      dunvegan: [0, 0, 0, 0, 0, 0, 0],
+      glamis: [0, 0, 0, 0, 0, 0, 0],
+      stirling: [0, 0, 0, 0, 0, 0, 0]
     };
   }
 </script>
@@ -160,4 +160,7 @@
     <button class="button is-danger is-light">Reset</button>
   </div>
 
+  <p>
+    To completely reset the scores back to 
+  </p>
 </div>

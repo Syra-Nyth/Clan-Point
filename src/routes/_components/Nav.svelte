@@ -61,12 +61,12 @@
             href="admin">
             Admin
           </a>
-          <a
+          <!-- <a
             class="navbar-item"
             class:is-active={segment === 'test'}
             href="test">
             Test
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
