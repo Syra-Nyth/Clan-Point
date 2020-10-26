@@ -26,7 +26,7 @@
 
   // fetches the clan placings from the database
   async function getClan() {
-    // get the document from the database for the given clan
+    // get the document from the database for all clans
     let clanDoc = await db
       .collection("clans")
       .doc("placings")
@@ -70,6 +70,10 @@
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  p {
+    text-align: center;
   }
 
   div {
