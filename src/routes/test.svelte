@@ -2,64 +2,57 @@
   import Nav from './_components/Nav.svelte'
 
   // create an empty clan object
-  let clan = {
+  let events = {
     clanName: "",
     athletics: "",
     swimmingSports: "",
     rangiRoadie: "",
     clanQuiz: "",
     crossCountry: "",
-    clanSinging: ""
+    clanSinging: "",
+    total: ""
   }
 
-  function saveClan() {
-    console.log("saveClan() clicked");
-    // save the clan object to the database under the clan name
-    db.collection("clans")
-      .doc(clan.clanName)
-      .set(clan);
+  let clans = {
+    balmoral: "",
+    braemar: "",
+    doune: "",
+    dunvegan: "",
+    glamis: "",
+    stirling: ""
   }
 
-  async function getClan() {
-    // get the document from the database for the given clan
-    let clanDoc = await db
-      .collection("clans")
-      .doc(clan.clanName)
-      .get();
+  // if (clans.length > 0) {
+  //   let n = 6
 
-    // get the data from the person document
-    clan = clanDoc.data();
-  }
+  //   session.clans.{clans}.forEach((num, index) => {
+  //   console.log(`${clans} score before: ${num}`)
+  //   session.clans.{clans}[index] = parseInt(num)
+  //   console.log(`${clans} score after: ${num}`)
+  //   })
 
-  getClan()
+  //   n = n - 1
+
+  // }
+  
 
 </script>
 
-<Nav />
-<!-- this is just a section to make the page look nice -->
-<section class="content section">
+  <tr id="title">
+    <td class="clan">Clan</td>
+    {#each events as event}
+    <td>{event}</td>
+    {/each}
+  </tr>
 
-  <h1>Clans</h1>
-
-  <!-- a place to enter the Clan name -->
-  <label>
-    Clan:
-    <input bind:value={clan.clanName} />
-  </label>
-
-  <!-- a place to enter the Athletics Results -->
-  <label>
-    Athletics:
-    <input bind:value={clan.athletics} />
-  </label>
-
-  <!-- a place to enter the Swimming Sports Results -->
-  <label>
-    Swimming Sports:
-    <input bind:value={clan.swimmingSports} />
-  </label>
-
-  <button on:click={getClan}>Get Clan</button>
-  <button on:click={saveClan}>Save Clan</button>
-
-</section>
+  <!-- {#each clans as clan}
+    <tr>
+      <td>{clan}</td>
+      <!-- prints each number in the clan document as a cell in the table -->
+      <!-- {#each session.clans.clan as score}
+        <td>
+          <input type="number" max="6" min="0" bind:value={score} />
+        </td>
+      {/each}
+    </tr>
+  {/each} -->

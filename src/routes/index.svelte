@@ -7,12 +7,12 @@
   /*If the session.clans data, imported from the admin page, is not found (is 'falsey'), then this data will be used a placeholder for the table until the correct data can be inserted.*/
   if (!session.clans) {
     session.clans = {
-      balmoral: [1, 1, 1, 1, 1, 1, 1],
-      braemar: [1, 1, 1, 1, 1, 1, 1],
-      doune: [1, 1, 1, 1, 1, 1, 1],
-      dunvegan: [1, 1, 1, 1, 1, 1, 1],
-      glamis: [1, 1, 1, 1, 1, 1, 1],
-      stirling: [1, 1, 1, 1, 1, 1, 1]
+      balmoral: [1, 1, 1, 1, 1, 1, 1, 1],
+      braemar: [1, 1, 1, 1, 1, 1, 1, 1],
+      doune: [1, 1, 1, 1, 1, 1, 1, 1],
+      dunvegan: [1, 1, 1, 1, 1, 1, 1, 1],
+      glamis: [1, 1, 1, 1, 1, 1, 1, 1],
+      stirling: [1, 1, 1, 1, 1, 1, 1, 1]
     };
   }
 
@@ -43,7 +43,7 @@
     width: fit-content;
     margin: 0 auto;
     color: white;
-    text-shadow: 0 0 5px black; 
+    text-shadow: 0 0 5px black;
     font-size: 4em !important;
   }
 
@@ -115,18 +115,11 @@
 <!-- Table -->
 <div>
 
-  <br>
+  <br />
 
   <Nav />
 
-  <!-- <br>
-  <br> -->
-
   <h1 class="title is-1">Clan Points</h1>
-
-  <!-- <br>
-  <br>
-  <br> -->
 
   <table class="table is-bordered">
     <tbody>
@@ -135,6 +128,7 @@
         <td class="clan">Clan</td>
         <td>400m</td>
         <td>Athletics</td>
+        <td>Clan Hat</td>
         <td>Swimming Sports</td>
         <td>Rangi Roadie</td>
         <td>Clan Quiz</td>
@@ -191,6 +185,5 @@
       </tr>
     </tbody>
   </table>
-
 
 </div>
