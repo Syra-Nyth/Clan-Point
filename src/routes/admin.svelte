@@ -16,62 +16,65 @@
 
   // saves the clan placings to the database, overriding anything already there
   function saveClan() {
+    // if ((holdScores = isNaN()) === true) {
+    //   alert("You have left an input empty")
+    // } else {  
+      // Rounds down any decimal places in the clan data
+      session.clans.balmoral.forEach((num, index) => {
+        console.log(`balmoral score before: ${num}`)
+        session.clans.balmoral[index] = parseInt(num)
+        console.log(`balmoral score after: ${num}`)
+      })
 
-    // Rounds down any decimal places in the clan data
-    session.clans.balmoral.forEach((num, index) => {
-      console.log(`balmoral score before: ${num}`)
-      session.clans.balmoral[index] = parseInt(num)
-      console.log(`balmoral score after: ${num}`)
-    })
+      // Rounds down any decimal places in the clan data
+      session.clans.braemar.forEach((num, index) => {
+        console.log(`braemar score before: ${num}`)
+        session.clans.braemar[index] = parseInt(num)
+        console.log(`braemar score after: ${num}`)
+      })
 
-    // Rounds down any decimal places in the clan data
-    session.clans.braemar.forEach((num, index) => {
-      console.log(`braemar score before: ${num}`)
-      session.clans.braemar[index] = parseInt(num)
-      console.log(`braemar score after: ${num}`)
-    })
+      // Rounds down any decimal places in the clan data
+      session.clans.doune.forEach((num, index) => {
+        console.log(`doune score before: ${num}`)
+        session.clans.doune[index] = parseInt(num)
+        console.log(`doune score after: ${num}`)
+      })
 
-    // Rounds down any decimal places in the clan data
-    session.clans.doune.forEach((num, index) => {
-      console.log(`doune score before: ${num}`)
-      session.clans.doune[index] = parseInt(num)
-      console.log(`doune score after: ${num}`)
-    })
+      // Rounds down any decimal places in the clan data
+      session.clans.dunvegan.forEach((num, index) => {
+        console.log(`dunvegan score before: ${num}`)
+        session.clans.dunvegan[index] = parseInt(num)
+        console.log(`dunvegan score after: ${num}`)
+      })
 
-    // Rounds down any decimal places in the clan data
-    session.clans.dunvegan.forEach((num, index) => {
-      console.log(`dunvegan score before: ${num}`)
-      session.clans.dunvegan[index] = parseInt(num)
-      console.log(`dunvegan score after: ${num}`)
-    })
+      // Rounds down any decimal places in the clan data
+      session.clans.glamis.forEach((num, index) => {
+        console.log(`glamis score before: ${num}`)
+        session.clans.glamis[index] = parseInt(num)
+        console.log(`glamis score after: ${num}`)
+      })
 
-    // Rounds down any decimal places in the clan data
-    session.clans.glamis.forEach((num, index) => {
-      console.log(`glamis score before: ${num}`)
-      session.clans.glamis[index] = parseInt(num)
-      console.log(`glamis score after: ${num}`)
-    })
+      // Rounds down any decimal places in the clan data
+      session.clans.stirling.forEach((num, index) => {
+        console.log(`stirling score before: ${num}`)
+        session.clans.stirling[index] = parseInt(num)
+        console.log(`stirling score after: ${num}`)
+      })
 
-    // Rounds down any decimal places in the clan data
-    session.clans.stirling.forEach((num, index) => {
-      console.log(`stirling score before: ${num}`)
-      session.clans.stirling[index] = parseInt(num)
-      console.log(`stirling score after: ${num}`)
-    })
+      console.log("saveClan() clicked");
+      // save the clan placings to the database under the clan name
+      console.log(session.clans);
+      db.collection("clans")
+        .doc("placings")
+        .set(session.clans);
 
-    console.log("saveClan() clicked");
-    // save the clan placings to the database under the clan name
-    console.log(session.clans);
-    db.collection("clans")
-      .doc("placings")
-      .set(session.clans);
+      let clanDoc = db
+        .collection("clans")
+        .doc("placings")
+        .get();
 
-    let clanDoc = db
-      .collection("clans")
-      .doc("placings")
-      .get();
-
-    alert("Clan placings saved!");
+      alert("Clan placings saved!");
+    // }
   }
 
   // fetches the clan placings from the database
@@ -156,7 +159,7 @@
           <!-- prints each number in the clan document as a cell in the table -->
           {#each session.clans.balmoral as score}
             <td>
-              <input type="number" max="6" min="0" bind:value={score} />
+              <input type="number" max="6" min="0" maxlength="1" bind:value={score} />
             </td>
           {/each}
         </tr>
