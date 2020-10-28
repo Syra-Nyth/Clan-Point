@@ -34,7 +34,6 @@
   div {
     background-image: url("rainbow3.png");
     background-size: 100%;
-    background-repeat: no-repeat;
     padding-top: 50px;
     padding-bottom: 80px;
   }
@@ -44,14 +43,14 @@
     margin: 0 auto;
     color: white;
     text-shadow: 0 0 5px black;
-    font-size: 4em !important;
+    font-size: 4em;
   }
 
   table {
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
-    margin-bottom: 110px !important;
+    margin-bottom: 110px;
   }
 
   td {

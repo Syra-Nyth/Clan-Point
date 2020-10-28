@@ -16,15 +16,6 @@
 
   // saves the clan placings to the database, overriding anything already there
   function saveClan() {
-    // var clan;
-    // for (clan in clans) {
-    //   session.clans.clan.forEach((num, index) => {
-    //   console.log(`${clan} score before: ${num}`)
-    //   session.clans.clan[index] = parseInt(num)
-    //   console.log(`${clan} score after: ${num}`)
-    //   })
-
-    // }
 
     // Rounds down any decimal places in the clan data
     session.clans.balmoral.forEach((num, index) => {
@@ -94,7 +85,8 @@
     // get the data from the clan document
     holdScores = clanDoc.data();
 
-    session.clans = session.clans;
+    // replaces any changes not saved with what is in the database
+    session.clans = holdScores;
   }
 
   // runs the getClan function when the webpage loads
@@ -132,10 +124,6 @@
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  p {
-    text-align: center;
   }
 
   div {
@@ -232,9 +220,4 @@
     <button class="button is-danger is-light" on:click={getClan}>Reset</button>
   </div>
 
-  <p>
-    To completely reset the scores back to 0 on the display page, refresh (Ctrl
-    + Shift + r or Command + shift + r) this page (the admin page), then save
-    the scores.
-  </p>
 </div>
